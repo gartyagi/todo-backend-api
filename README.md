@@ -39,4 +39,5 @@ Steps to run application:
 4. Uncomment 'line 54' from 'toDoItem.js' file (models folder), if running the application first time on your system.  
 5. Type 'node server.js' and enter 
 6. Comment back line 54 from 'toDOItem.js' file from models folder.
+    (Otherwise it will replace the old table with a new one and all your data will get destroy)
 7. Use Postman to test the application using 'localhost:5500/' and see file app.js
