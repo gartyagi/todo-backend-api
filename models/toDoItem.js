@@ -51,6 +51,6 @@ console.log(now)
 console.log(new Date((new Date(Date.now())).setMonth((new Date(Date.now())).getMonth()+1)))
 //
 
-toDoItem.sync({ force: true })// comment after running once
+//toDoItem.sync({ force: true })// comment after running once
 
 module.exports = toDoItem
