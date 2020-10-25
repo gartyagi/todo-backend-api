@@ -32,6 +32,7 @@ Steps to run application:
 
 1. Make sure you have Postgresql installed on your system.
 2. Create a user, it's password and database, and enter them in files:
+
     i.  server.js and   
     ii. toDOItem.js (in models folder)
        (See comments)
