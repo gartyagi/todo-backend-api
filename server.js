@@ -2,9 +2,9 @@ const app = require('./app')
 const { Sequelize } = require('sequelize')
 
 const sequelize = new Sequelize(
-    'tododata',
-    'postgres',
-    'mypassword',
+    'tododata',  //database
+    'postgres',  //username
+    'mypassword',//password
     {
         host: 'localhost',
         dialect: 'postgres',
