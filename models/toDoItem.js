@@ -2,8 +2,8 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 const sequelize = new Sequelize(
     'tododata',
-    'me',
-    'password',
+    'postgres',
+    'mypassword',
     {
         host: 'localhost',
         dialect: 'postgres',
@@ -39,6 +39,6 @@ const toDoItem = sequelize.define('toDoItem', {
     }
 })
 
-// toDoItem.sync({ force: true })
+toDoItem.sync({ force: true })
 
 module.exports = toDoItem

@@ -3,8 +3,8 @@ const { Sequelize } = require('sequelize')
 
 const sequelize = new Sequelize(
     'tododata',
-    'me',
-    'password',
+    'postgres',
+    'mypassword',
     {
         host: 'localhost',
         dialect: 'postgres',
