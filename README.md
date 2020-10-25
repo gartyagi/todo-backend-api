@@ -22,16 +22,10 @@ Testing done on POSTMAN.
 7. Port number used is 5500.
 
 
-Approach to the solution
 
+For Database Schema and Different route's description visit the link given below:
 
-
-
-
-
-Database Schema  
-
-
+https://docs.google.com/document/d/1Jg7sM_hPTzoEaeL3cAXI4r9xYMaH8T1q-7lNqMymZ2s/edit?usp=sharing
 
 
 Steps to run application:
