@@ -39,6 +39,6 @@ const toDoItem = sequelize.define('toDoItem', {
     }
 })
 
-toDoItem.sync({ force: true })
+//toDoItem.sync({ force: true })// comment after running once
 
 module.exports = toDoItem

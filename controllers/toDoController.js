@@ -104,6 +104,27 @@ exports.getIncompleteTodos = async (req, res) => {
     }
 }
 
+exports.deleteTodosbytitle = async (req, res) => {
+    try {
+        // const title = req.params.title
+        const { title } = req.params
+        const toDo = await ToDoItem.destroy({ 
+            where: {
+                title
+            }
+        })
+        res.status(200).json({
+            status: 'success',
+            data: toDo
+        })
+    } catch (err) {
+        console.log(err)
+        res.status(404).json({
+            status: 'fail'
+        })
+    }
+}
+
 exports.getTodosByPriority = async (req, res) => {
     try {
         const { limit } = req.params
