@@ -1,4 +1,4 @@
-# todo-backend-api
+# todos-app-backend-api
 
 Designed and Implemented a todo application(Backend APIs Only).
 which support: 
@@ -36,7 +36,7 @@ Steps to run application:
     i.  server.js and   
     ii. toDOItem.js (in models folder)
        (See comments)
-3. Open terminal and Change directory to server.js's file.
+3. Open terminal and Change directory to server.js's file's directory.
 4. Uncomment 'line 54' from 'toDoItem.js' file (models folder), if running the application first time on your system.  
 5. Type 'node server.js' and enter 
 6. Comment back line 54 from 'toDOItem.js' file from models folder.
