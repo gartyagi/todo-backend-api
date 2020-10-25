@@ -3,7 +3,11 @@ const { Op } = require('sequelize')
 
 exports.getTodos = async (req, res) => {
     try {
-        const toDos = await ToDoItem.findAll({})
+        const toDos = await ToDoItem.findAll({
+            order: [
+                ['title', 'ASC'],
+            ],
+        })
         res.status(200).json({
             status: 'success',
             data: toDos
@@ -23,7 +27,10 @@ exports.getTodoByTitle = async (req, res) => {
         const toDo = await ToDoItem.findOne({ 
             where: {
                 title
-            }
+            },
+            order : [
+                ['title', 'ASC'],
+            ],
         })
         res.status(200).json({
             status: 'success',
@@ -37,7 +44,7 @@ exports.getTodoByTitle = async (req, res) => {
     }
 }
 
-exports.getTodosByDateRange = async (req, res) => {
+exports.getTodosByDeadlineDateRange = async (req, res) => {
     try {
         const { startDay, startMonth, startYear, endDay, endMonth, endYear } = req.params
         const startDate = new Date(startYear, startMonth - 1, startDay, 0, 0, 0, 0)
@@ -49,7 +56,11 @@ exports.getTodosByDateRange = async (req, res) => {
                     [Op.gte]: startDate,
                     [Op.lte]: endDate
                 }
-              }
+              },
+              order : [
+                ['deadlineDate', 'DESC'],
+                ['title','ASC']
+            ],
          })
         res.status(200).json({
             status: 'success',
@@ -71,7 +82,11 @@ exports.getTodosByPriorityRange = async (req, res) => {
                   [Op.gte]: req.params.startPriority,
                   [Op.lte]: req.params.endPriority
                 }
-              }
+              },
+              order: [
+                ['priority', 'DESC'],
+                ['title','ASC']
+            ],
          })
         res.status(200).json({
             status: 'success',
@@ -90,7 +105,11 @@ exports.getIncompleteTodos = async (req, res) => {
         const toDosRes = await ToDoItem.findAll({ 
             where: {
                 isCompleted: false
-            }
+            },
+            order: [
+                ['deadlineDate', 'ASC'],
+                ['title','ASC']
+            ],
          })
         res.status(200).json({
             status: 'success',
@@ -103,6 +122,29 @@ exports.getIncompleteTodos = async (req, res) => {
         })
     }
 }
+
+exports.getCompleteTodos = async (req, res) => {
+    try {
+        const toDosRes = await ToDoItem.findAll({ 
+            where: {
+                isCompleted: true
+            },
+            order: [
+                ['title','ASC']
+            ],
+         })
+        res.status(200).json({
+            status: 'success',
+            data: toDosRes
+        })
+    } catch (err) {
+        console.log(err)
+        res.status(404).json({
+            status: 'fail'
+        })
+    }
+}
+
 
 exports.deleteTodosbytitle = async (req, res) => {
     try {
@@ -198,7 +240,8 @@ exports.createTodo = async (req, res) => {
     } catch (err) {
         console.log(err)
         res.status(404).json({
-            status: 'fail'
+            status: 'fail',
+            check1:'Title Must Be Unique'
         })
     }
 }

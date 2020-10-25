@@ -17,19 +17,20 @@ app.use(bodyParser.json())
 // post ==> body
 
 // For point 2, use query params
+//add option to update other attributes
+//add error for same title entry
 app.get('/todos', toDoController.getTodos)
 app.get('/todos/incomplete', toDoController.getIncompleteTodos)
+app.get('/todos/complete', toDoController.getCompleteTodos)
 app.get('/todos/:title', toDoController.getTodoByTitle)
 app.get('/todos/priority-filter/:startPriority/:endPriority', toDoController.getTodosByPriorityRange)
-app.get('/todos/date-range-filter/:startDay/:startMonth/:startYear/:endDay/:endMonth/:endYear', toDoController.getTodosByDateRange)
+app.get('/todos/deadlinedate-range-filter/:startDay/:startMonth/:startYear/:endDay/:endMonth/:endYear', toDoController.getTodosByDeadlineDateRange)
 app.get('/todos/top-priority/:limit', toDoController.getTodosByPriority)
 app.patch('/todos/:title/mark-complete', toDoController.markTodoAsComplete)
 app.post('/todos', toDoController.createTodo)
 app.delete('/todos/:title',toDoController.deleteTodosbytitle)
-// Point 3, prioritize the todos, show incompleted todos before the completed todos
 
-// Get ko by id krna hai
 
-// Assumption: Priority larger the no, higher the priority
+
 
 module.exports = app
