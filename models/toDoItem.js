@@ -42,13 +42,13 @@ const toDoItem = sequelize.define('toDoItem', {
 //
 //Setting deadline with 1 month+ date of creation of todo item
 //Date.now(): returns a numerical value corresponding to current date
-//but we require a Date object to apply getMonth() and setMonth() functions
-const now=new Date(Date.now())
-const month=now.getMonth()// 0-11
-now.setMonth(month+1)
-console.log(now)
-//OR Directly
-console.log(new Date((new Date(Date.now())).setMonth((new Date(Date.now())).getMonth()+1)))
+// //but we require a Date object to apply getMonth() and setMonth() functions
+// const now=new Date(Date.now())
+// const month=now.getMonth()// 0-11
+// now.setMonth(month+1)
+// console.log(now)
+// //OR Directly
+// console.log(new Date((new Date(Date.now())).setMonth((new Date(Date.now())).getMonth()+1)))
 //
 
 //toDoItem.sync({ force: true })// comment after running once

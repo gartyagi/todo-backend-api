@@ -34,7 +34,7 @@ Steps to run application:
 2. Create a user, it's password and database, and enter them in files:
 
     i.  server.js and   
-    ii. toDOItem.js (in models folder)
+    ii. toDoItem.js (in models folder)
        (See comments)
 3. Open terminal and Change directory to server.js's file's directory.
 4. Uncomment 'line 54' from 'toDoItem.js' file (models folder), if running the application first time on your system.  
